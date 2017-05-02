@@ -1,13 +1,5 @@
 require 'spec_helper'
 
-DB = PG.connect({:dbname => 'doctors_office_test'})
-
-RSpec.configure do |config|
-  config.after(:each) do
-    DB.exec("DELETE FROM specialties *;")
-  end
-end
-
 describe(Specialty) do
   describe(".all") do
     it("starts off with no specialties") do
